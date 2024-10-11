@@ -1,7 +1,7 @@
 Felipe identifico:
 1. Redimientos 100m planos
 2. Le cuesta leer los numeros (muy pequeños)
-3. Hombres con mejor tiempo, mujeres peor
+3. Hombres con mejor tiempo, mujeres peor (30 segundos aprox en identificarlo)
 4. Hombres y mujeres mejoran su tiempo a lo largo de los años (1 minuto aprox en identificarlo)
 
 Conclusión:
