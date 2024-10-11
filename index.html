@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Comparación de Tiempos en 100m Planos - Hombres vs Mujeres</title>
+  <script src="https://cdn.plot.ly/plotly-2.34.0.min.js"></script>
+</head>
+<body>
+  <div id='myDiv'></div>
+</body>
+
+<script>
+  // Función para cargar el JSON y generar el gráfico con un subconjunto de Olimpiadas
+  fetch('data_city_year_together.json')
+    .then(response => response.json())
+    .then(data => {
+      // Filtrar solo algunos años representativos para reducir el eje X
+      //const filteredData = data.filter((entry, index) => index % 5 === 0); // Mostrar cada 5 Olimpiadas por ejemplo
+
+      // Extraer los datos del JSON filtrado
+      const years = data.map(entry => entry.City_Year);
+      const menTimes = data.map(entry => entry.Men);
+      const womenTimes = data.map(entry => entry.Women === "-" ? null : entry.Women);
+
+      // Configuración de los datos del gráfico
+      var traceMen = {
+        x: years,
+        y: menTimes,
+        mode: 'lines+markers',
+        name: 'Hombres',
+        line: { color: '#1f77b4' },
+        marker: { size: 6 }
+      };
+
+      var traceWomen = {
+        x: years,
+        y: womenTimes,
+        mode: 'lines+markers',
+        name: 'Mujeres',
+        line: { color: '#ff7f0e' },
+        marker: { size: 6 }
+      };
+
+      // Configuración del diseño del gráfico
+      var layout = {
+        title: 'Comparación de Tiempos en 100m Planos - Hombres vs Mujeres (Olimpiadas)',
+        xaxis: {
+          title: 'Año',
+          showgrid: true,
+          zeroline: false
+        },
+        yaxis: {
+          title: 'Tiempo (segundos)',
+          showline: true
+        }
+      };
+
+      // Generar el gráfico
+      Plotly.newPlot('myDiv', [traceMen, traceWomen], layout);
+    })
+    .catch(error => console.error('Error al cargar el archivo JSON:', error));
+</script>
+</html>
