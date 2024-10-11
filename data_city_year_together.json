@@ -1,151 +1,151 @@
 [
   {
-    "City_Year": "Athens 1896",
+    "Year": 1896,
     "Men": 12,
     "Women": "-"
   },
   {
-    "City_Year": "Paris 1900",
+    "Year": 1900,
     "Men": 11,
     "Women": "-"
   },
   {
-    "City_Year": "St. Louis 1904",
+    "Year": 1904,
     "Men": 11,
     "Women": "-"
   },
   {
-    "City_Year": "London 1908",
+    "Year": 1908,
     "Men": 10.8,
     "Women": "-"
   },
   {
-    "City_Year": "Stockholm 1912",
+    "Year": 1912,
     "Men": 10.8,
     "Women": "-"
   },
   {
-    "City_Year": "Antwerp 1920",
+    "Year": 1920,
     "Men": 10.8,
     "Women": "-"
   },
   {
-    "City_Year": "Paris 1924",
+    "Year": 1924,
     "Men": 10.6,
     "Women": "-"
   },
   {
-    "City_Year": "Amsterdam 1928",
+    "Year": 1928,
     "Men": 10.8,
     "Women": 12.2
   },
   {
-    "City_Year": "Los Angeles 1932",
+    "Year": 1932,
     "Men": 10.3,
     "Women": 11.9
   },
   {
-    "City_Year": "Berlin 1936",
+    "Year": 1936,
     "Men": 10.3,
     "Women": 11.5
   },
   {
-    "City_Year": "London 1948",
+    "Year": 1948,
     "Men": 10.3,
     "Women": 11.9
   },
   {
-    "City_Year": "Helsinki 1952",
+    "Year": 1952,
     "Men": 10.4,
     "Women": 11.5
   },
   {
-    "City_Year": "Melbourne 1956",
+    "Year": 1956,
     "Men": 10.5,
     "Women": 11.5
   },
   {
-    "City_Year": "Rome 1960",
+    "Year": 1960,
     "Men": 10.2,
     "Women": 11
   },
   {
-    "City_Year": "Tokyo 1964",
+    "Year": 1964,
     "Men": 10,
     "Women": 11.4
   },
   {
-    "City_Year": "Mexico City 1968",
+    "Year": 1968,
     "Men": 9.95,
     "Women": 11
   },
   {
-    "City_Year": "Munich 1972",
+    "Year": 1972,
     "Men": 10.14,
     "Women": 11.07
   },
   {
-    "City_Year": "Montreal 1976",
+    "Year": 1976,
     "Men": 10.06,
     "Women": 11.08
   },
   {
-    "City_Year": "Moscow 1980",
+    "Year": 1980,
     "Men": 10.25,
     "Women": 11.06
   },
   {
-    "City_Year": "Los Angeles 1984",
+    "Year": 1984,
     "Men": 9.99,
     "Women": 10.97
   },
   {
-    "City_Year": "Seoul 1988",
+    "Year": 1988,
     "Men": 9.92,
     "Women": 10.62
   },
   {
-    "City_Year": "Barcelona 1992",
+    "Year": 1992,
     "Men": 9.96,
     "Women": 10.82
   },
   {
-    "City_Year": "Atlanta 1996",
+    "Year": 1996,
     "Men": 9.84,
     "Women": 10.94
   },
   {
-    "City_Year": "Sydney 2000",
+    "Year": 2000,
     "Men": 9.87,
-    "Women": "-"
+    "Women": 10.75
   },
   {
-    "City_Year": "Athens 2004",
+    "Year": 2004,
     "Men": 9.85,
     "Women": 10.93
   },
   {
-    "City_Year": "Beijing 2008",
+    "Year": 2008,
     "Men": 9.69,
     "Women": 10.78
   },
   {
-    "City_Year": "London 2012",
+    "Year": 2012,
     "Men": 9.63,
     "Women": 10.75
   },
   {
-    "City_Year": "Rio 2016",
+    "Year": 2016,
     "Men": 9.81,
     "Women": 10.71
   },
   {
-    "City_Year": "Tokyo 2020",
+    "Year": 2020,
     "Men": 9.8,
     "Women": 10.61
   },
   {
-    "City_Year": "Paris 2024",
+    "Year": 2024,
     "Men": 9.79,
     "Women": 10.72
   }

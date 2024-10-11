@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Comparación de Tiempos en 100m Planos - Hombres vs Mujeres</title>
+  <title>Record 100m Planos en las Olimpiadas</title>
   <script src="https://cdn.plot.ly/plotly-2.34.0.min.js"></script>
 </head>
 <body>
@@ -9,49 +9,155 @@
 </body>
 
 <script>
-  // Función para cargar el JSON y generar el gráfico con un subconjunto de Olimpiadas
   fetch('data_city_year_together.json')
     .then(response => response.json())
     .then(data => {
-      // Filtrar solo algunos años representativos para reducir el eje X
-      //const filteredData = data.filter((entry, index) => index % 5 === 0); // Mostrar cada 5 Olimpiadas por ejemplo
 
-      // Extraer los datos del JSON filtrado
-      const years = data.map(entry => entry.City_Year);
+      const years = data.map(entry => entry.Year);
       const menTimes = data.map(entry => entry.Men);
       const womenTimes = data.map(entry => entry.Women === "-" ? null : entry.Women);
+      const MenTextPosition = [
+        "top", "bottom", "top", "bottom", "top", "top", "bottom", "top", "bottom", "top",
+        "bottom", "top", "top", "top", "top", "bottom", "top", "bottom", "top", "bottom",
+        "top", "bottom", "top", "bottom", "top", "bottom", "bottom", "top", "bottom", "top",
+      ];
 
-      // Configuración de los datos del gráfico
+      const WomenTextPosition = [
+        "", "", "", "", "", "", "", "top", "top", "bottom",
+        "top", "bottom", "top", "bottom", "top", "bottom", "top", "bottom", "top", "top",
+        "bottom", "top", "top", "bottom", "top", "top", "bottom", "top", "bottom", "top",
+      ];
+
+      const womenMarkerAndTextColor = data.map(entry => entry.Year === 2000 ? '#555' : '#999');
       var traceMen = {
         x: years,
         y: menTimes,
-        mode: 'lines+markers',
+        text: menTimes.map(time => time === null ? '' : time),
+        textposition: MenTextPosition,
+        textfont: { color: "#1f77b4" },
+        mode: 'lines+markers+text',
         name: 'Hombres',
-        line: { color: '#1f77b4' },
-        marker: { size: 6 }
+        line: {
+          color: '#1f77b4',
+          width: 5
+        },
+        marker: { size: 13 }
       };
 
       var traceWomen = {
         x: years,
         y: womenTimes,
-        mode: 'lines+markers',
+        text: womenTimes.map(time => time === null ? '' : time),
+        textposition: WomenTextPosition,
+        textfont: { color: womenMarkerAndTextColor },
+        mode: 'lines+markers+text',
         name: 'Mujeres',
-        line: { color: '#ff7f0e' },
-        marker: { size: 6 }
+        line: {
+          color: '#999',
+          width: 5
+        },
+        marker: {
+          size: 13,
+          color: womenMarkerAndTextColor
+        }
       };
 
-      // Configuración del diseño del gráfico
       var layout = {
-        title: 'Comparación de Tiempos en 100m Planos - Hombres vs Mujeres (Olimpiadas)',
+        showlegend: false,
+        height: 600,
+        width: 1400,
         xaxis: {
-          title: 'Año',
-          showgrid: true,
-          zeroline: false
+          showline: true,
+          showgrid: false,
+          showticklabels: true,
+          linecolor: 'rgb(204,204,204)',
+          linewidth: 2,
+          ticklen: 5,
+          autotick: false,
+          ticks: 'outside',
+          tickcolor: 'rgb(204,204,204)',
+          tickwidth: 2,
+          ticklen: 5,
+          tickfont: {
+            family: 'Arial',
+            size: 20,
+            color: 'rgb(82, 82, 82)'
+          },
+          tickangle: -45,
+          type: 'category',
         },
         yaxis: {
           title: 'Tiempo (segundos)',
-          showline: true
-        }
+          showgrid: false,
+          zeroline: false, // no se que hace
+          showline: false,
+          showticklabels: true,
+        },
+        autosize: false,
+        annotations: [
+          {
+            xref: 'paper',
+            yref: 'paper',
+            x: 0.0,
+            y: 1.05,
+            xanchor: 'left',
+            yanchor: 'bottom',
+            text: 'Records 100m Planos en las Olimpiadas',
+            font:{
+              family: 'Arial',
+              size: 30,
+              color: 'rgb(37,37,37)'
+            },
+            showarrow: false
+          },
+          {
+            xref: 'paper',
+            x: 1.02,
+            y: 9.79,
+            xanchor: 'right',
+            yanchor: 'middle',
+            text: '<b>Hombres</b>',
+            showarrow: false,
+            font: {
+              family: 'Arial',
+              size: 16,
+              color: '#1f77b4'
+            }
+          },
+          {
+            xref: 'paper',
+            x: 1.012,
+            y: 10.72,
+            xanchor: 'right',
+            yanchor: 'middle',
+            text: '<b>Mujeres</b>',
+            showarrow: false,
+            font: {
+              family: 'Arial',
+              size: 16,
+              color: '#999'
+            }
+          },
+          {
+            xref: 'paper',
+            x: 0.765,
+            y: 10.58,
+            xanchor: 'center',
+            yanchor: 'middle',
+            arrowhead: 2,
+            arrowsize: 0.7,
+            arrowcolor: '#555',
+            ax: 10,
+            ay: 30,
+            text: 'Descalificada por dopaje',
+            showarrow: true,
+            font: {
+              family: 'Arial',
+              size: 12,
+              color: '#555'
+            }
+          }
+        ]
       };
 
       // Generar el gráfico
