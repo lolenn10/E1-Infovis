@@ -6,3 +6,4 @@ Felipe identifico:
 
 Conclusión:
 Se debe aumentar el tamaño de los elementos para que sea visible para todos.
+Lograr que el eje Y sea facilmente identificable (¿de que trata? -> tiempo en segundo de los corredores)
