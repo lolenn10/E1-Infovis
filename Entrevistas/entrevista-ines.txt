@@ -1,4 +1,7 @@
-Ines Mellado identifico:
-1. Tiempos de competicion han disminuido a traves de los años, taanto hombres como mujeres (rapidamente identificado, menos de 30 seg)
+Ines identifico:
+1. Tiempos de competicion han disminuido a traves de los años, tanto hombres como mujeres (rapidamente identificado, menos de 30 seg)
 2. A partir de los 60 bajan consistentemente
 3. hombres siempre mas bajos que mujeres (le costo llegar a esta conclusion (1.30 min aprox), quizas cambiar color mujer)
+
+Conclusión:
+Modificar el color de la linea de las mujeres
