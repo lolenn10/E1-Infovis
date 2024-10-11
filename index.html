@@ -8,6 +8,16 @@
   <div id='myDiv'></div>
 </body>
 
+<style>
+  body {
+    display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;    
+  }
+</style>
+
 <script>
   fetch('data_city_year_together.json')
     .then(response => response.json())
@@ -98,15 +108,15 @@
           {
             xref: 'paper',
             yref: 'paper',
-            x: 0.0,
+            x: 0.28,
             y: 1.05,
             xanchor: 'left',
             yanchor: 'bottom',
-            text: 'Records 100m Planos en las Olimpiadas',
+            text: '<b>Records 100m Planos en las Olimpiadas</b>',
             font:{
               family: 'Arial',
               size: 30,
-              color: 'rgb(37,37,37)'
+              color: 'rgb(100,100,100)'
             },
             showarrow: false
           },
@@ -160,7 +170,6 @@
         ]
       };
 
-      // Generar el gráfico
       Plotly.newPlot('myDiv', [traceMen, traceWomen], layout);
     })
     .catch(error => console.error('Error al cargar el archivo JSON:', error));
