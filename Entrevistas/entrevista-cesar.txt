@@ -1,0 +1,12 @@
+Cesar identificó:
+
+1. Comparación de records en los JJOO entre hombres y mujeres
+2. Mejoran a lo largo de los años
+3. Los hombres son más rápidos que las mujeres
+4. Las mujeres entraron a las olimpiadas despues que los hombres
+
+Conclusión: 
+Cambiar "records" por medalla de oro en el título
+Poner "evolución" en el título
+Poner nombres de los competidores y sedes, tambien alguna foto al pasar por arriba del dato
+Destacar con un color distinto los tiempos que fueron records mundiales u olimpicos
