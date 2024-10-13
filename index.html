@@ -1,11 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Record 100m Planos en las Olimpiadas</title>
+  <title>Evolución de los Medallistas de 100m en las Olimpiadas</title>
   <script src="https://cdn.plot.ly/plotly-2.34.0.min.js"></script>
 </head>
 <body>
   <div id='myDiv'></div>
+  <div id="hover-info">
+    <img id="img">
+    <div id="hover-details">
+      <span id="winner-name"></span>
+      <span id="year"></span>
+      <span id="time"></span>
+    </div>
+  </div>
 </body>
 
 <style>
@@ -16,6 +24,58 @@
       height: 100vh;
       margin: 0;    
   }
+  span {
+    display: block;
+    font-size: 16px;
+    font-family: Arial;
+    color: #000;
+    margin-top: 5px;
+  }
+
+  img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  #time {
+    transition: 500ms ease all;
+    font-size: 20px;
+    font-weight: 800;
+  }
+
+  #time:after {
+    content: " segundos";
+    font-size: 16px;
+    font-weight: 400;
+  }
+
+  #winner-name {
+    transition: 500ms ease all;
+    font-size: 20px;
+    font-weight: 800;
+  }
+
+  #year {
+    transition: 500ms ease all;
+    font-size: 20px;
+    font-weight: 400;
+  }
+
+  #hover-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 500ms ease all;
+    position: absolute;
+    top: 175px;
+    left: 1000px;
+    padding: 20px;
+    opacity: 0;
+  }
+
 </style>
 
 <script>
@@ -26,6 +86,13 @@
       const years = data.map(entry => entry.Year);
       const menTimes = data.map(entry => entry.Men);
       const womenTimes = data.map(entry => entry.Women === "-" ? null : entry.Women);
+      const menWinners = data.map(entry => entry.men_winner);  
+      const womenWinners = data.map(entry => entry.women_winner);
+      const menPhotos = data.map(entry => entry.men_photo);
+      const womenPhotos = data.map(entry => entry.women_photo);
+      const menCustomData = menTimes.map((time, index) => [menWinners[index], menPhotos[index]]);
+      const womenCustomData = womenTimes.map((time, index) => [womenWinners[index], womenPhotos[index]]);
+
       const MenTextPosition = [
         "top", "bottom", "top", "bottom", "top", "top", "bottom", "top", "bottom", "top",
         "bottom", "top", "top", "top", "top", "bottom", "top", "bottom", "top", "bottom",
@@ -38,20 +105,25 @@
         "bottom", "top", "top", "bottom", "top", "top", "bottom", "top", "bottom", "top",
       ];
 
-      const womenMarkerAndTextColor = data.map(entry => entry.Year === 2000 ? '#555' : '#999');
+      const womenMarkerAndTextColor = data.map(entry => entry.Year === 2000 ? '#555' : '9f7f34');
       var traceMen = {
         x: years,
         y: menTimes,
         text: menTimes.map(time => time === null ? '' : time),
         textposition: MenTextPosition,
-        textfont: { color: "#1f77b4" },
-        mode: 'lines+markers+text',
+        textfont: {
+          size: 14
+        },
+        mode: 'lines+markers',
         name: 'Hombres',
         line: {
           color: '#1f77b4',
           width: 5
         },
-        marker: { size: 13 }
+        marker: { size: 11 },
+        customdata: menCustomData,
+        hoverinfo: "text"
+        
       };
 
       var traceWomen = {
@@ -59,24 +131,37 @@
         y: womenTimes,
         text: womenTimes.map(time => time === null ? '' : time),
         textposition: WomenTextPosition,
-        textfont: { color: womenMarkerAndTextColor },
-        mode: 'lines+markers+text',
+        textfont: {
+          color: womenMarkerAndTextColor,
+          size: 14
+        },
+        mode: 'lines+markers',
         name: 'Mujeres',
         line: {
-          color: '#999',
+          color: '#9f7f34',
           width: 5
         },
         marker: {
-          size: 13,
-          color: womenMarkerAndTextColor
-        }
+          size: 11,
+          color: womenMarkerAndTextColor,
+        },
+        customdata: womenCustomData,
+        hoverinfo: "text"
       };
 
       var layout = {
         showlegend: false,
-        height: 600,
-        width: 1400,
+        height: 650,
+        width: 1350,
         xaxis: {
+          title: {
+            text: 'Años',
+            font: {
+              family: 'Arial',
+              size: 24,
+              color: 'rgb(82, 82, 82)',
+            }
+          },
           showline: true,
           showgrid: false,
           showticklabels: true,
@@ -86,8 +171,8 @@
           autotick: false,
           ticks: 'outside',
           tickcolor: 'rgb(204,204,204)',
-          tickwidth: 2,
-          ticklen: 5,
+          tickwidth: 4,
+          ticklen: 7,
           tickfont: {
             family: 'Arial',
             size: 20,
@@ -97,22 +182,42 @@
           type: 'category',
         },
         yaxis: {
-          title: 'Tiempo (segundos)',
+          title: {
+            text: 'Tiempo (segundos)',
+            font: {
+              family: 'Arial',
+              size: 24,
+              color: 'rgb(82, 82, 82)',
+            }
+          },
           showgrid: false,
           zeroline: false, // no se que hace
-          showline: false,
+          showline: true,
           showticklabels: true,
+          linecolor: 'rgb(204,204,204)',
+          linewidth: 2,
+          ticklen: 5,
+          autotick: true,
+          ticks: 'outside',
+          tickcolor: 'rgb(204,204,204)',
+          tickwidth: 4,
+          ticklen: 7,
+          tickfont: {
+            family: 'Arial',
+            size: 16,
+            color: 'rgb(82, 82, 82)'
+          },
         },
         autosize: false,
         annotations: [
           {
             xref: 'paper',
             yref: 'paper',
-            x: 0.28,
+            x: 0.16,
             y: 1.05,
             xanchor: 'left',
             yanchor: 'bottom',
-            text: '<b>Records 100m Planos en las Olimpiadas</b>',
+            text: '<b>Evolución de los Ganadores de 100m planos en las Olimpiadas</b>',
             font:{
               family: 'Arial',
               size: 30,
@@ -122,7 +227,7 @@
           },
           {
             xref: 'paper',
-            x: 1.02,
+            x: 1.03,
             y: 9.79,
             xanchor: 'right',
             yanchor: 'middle',
@@ -130,13 +235,13 @@
             showarrow: false,
             font: {
               family: 'Arial',
-              size: 16,
+              size: 20,
               color: '#1f77b4'
             }
           },
           {
             xref: 'paper',
-            x: 1.012,
+            x: 1.020,
             y: 10.72,
             xanchor: 'right',
             yanchor: 'middle',
@@ -144,8 +249,8 @@
             showarrow: false,
             font: {
               family: 'Arial',
-              size: 16,
-              color: '#999'
+              size: 20,
+              color: '#9f7f34',
             }
           },
           {
@@ -155,7 +260,7 @@
             xanchor: 'center',
             yanchor: 'middle',
             arrowhead: 2,
-            arrowsize: 0.7,
+            arrowsize: 0.9,
             arrowcolor: '#555',
             ax: 10,
             ay: 30,
@@ -163,14 +268,38 @@
             showarrow: true,
             font: {
               family: 'Arial',
-              size: 12,
+              size: 16,
               color: '#555'
             }
           }
         ]
       };
 
-      Plotly.newPlot('myDiv', [traceMen, traceWomen], layout);
+      const myPlot = document.getElementById('myDiv');
+
+      Plotly.newPlot(myPlot, [traceMen, traceWomen], layout);
+
+      myPlot.on('plotly_hover', function(data){
+        const year = data.points[0].x;
+        console.log(data.points[0]);
+        const winner = data.points[0].customdata[0];
+        const photo = `./public/${data.points[0].customdata[1]}`;
+        const time = data.points[0].y;
+        
+        console.log(winner, year, time, photo);
+
+        document.getElementById('hover-info').style.opacity = 1;
+        document.getElementById('winner-name').innerText = winner;
+        document.getElementById('year').innerText = year;
+        document.getElementById('time').innerText = time;
+        document.getElementById('img').src = photo;
+        document.getElementById('img').alt = winner;
+      });
+
+      myPlot.on('plotly_unhover', function(data){
+        document.getElementById('hover-info').style.opacity = 0;
+      });
+
     })
     .catch(error => console.error('Error al cargar el archivo JSON:', error));
 </script>
