@@ -1,0 +1,14 @@
+Isi identifico:
+1. Grafico muestra en tiempos la evolucion de los records de 100m planos en hombres y mujeres (muy rapido, 10 segundos aprox)
+2. Hombres van mas rapido que las mujeres (rapido, 20 segundos aprox)
+3. Tiempos disminuyen con los años
+4. Color de la mujer tiene que ser mejor
+5. Ponerle numero no necesariamente a todos los circulitos
+6. Descalificado por dopaje es random que este ahi
+7. Poner explicitamente en el eje x que son años por formato
+
+Conclusión:
+Modificar color linea de mujeres
+Discutir si es que todos los circulos deben llevar los tiempos pq tal vez es una sobresaturacion de datos
+Sacar descalificado por dopaje
+Poner años en eje x
