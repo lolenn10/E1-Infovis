@@ -1,7 +1,8 @@
 Carol identifico:
 1. desempeño mejora de ambos.
 2. hombres mejor desempeño que mujeres.
-3. Creo que es una estrella que hace referencia a el mejor tiempo (costo identificar que era una estrella)
-4. velocidad del ruido aumenta a medida que aumentan los tiempos
+3. Creo que es una estrella que hace referencia a el mejor tiempo (costo identificar que era una estrella, pero rapidamente vio que eran los records)
+4. velocidad del ruido aumenta a medida que aumentan los tiempos (le costo un poco detectar ese cambio de velocidad en el sonido)
+5. En ningun momento se dio cuenta que habia una mujer descalificada
 
-Conclusión:Se debe modificar estilo de la estrella
+Conclusión:Se debe modificar estilo de la estrella, y lograr que se detecte que hubo un tiempo descalificado
