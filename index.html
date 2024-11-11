@@ -15,7 +15,7 @@
       <span id="message-info"></span>
     </div>
   </div>
-  <audio id="running-sound" src="./Sonidos/corriendo.mp3"></audio>
+  <audio id="running-sound" src="./Sonidos/corriendo.mp3" preload="auto"></audio>
 </body>
 
 <style>
@@ -364,8 +364,10 @@
         document.getElementById('message-info').style.color = messageInfo.color;
 
         setPlaybackRate(time);
-        runningSound.currentTime = 0;
-        runningSound.play();
+        if (runningSound.paused) {
+          runningSound.currentTime = 0; // Reinicia el sonido al principio
+          runningSound.play(); // Reproduce el sonido
+        }
       });
 
       myPlot.on('plotly_unhover', function(data){
