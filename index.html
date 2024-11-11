@@ -12,8 +12,10 @@
       <span id="winner-name"></span>
       <span id="year"></span>
       <span id="time"></span>
+      <span id="message-info"></span>
     </div>
   </div>
+  <audio id="running-sound" src="./Sonidos/corriendo.mp3"></audio>
 </body>
 
 <style>
@@ -64,6 +66,12 @@
     font-weight: 400;
   }
 
+  #message-info {
+    transition: 500ms ease all;
+    font-size: 15px;
+    font-weight: 800;
+  }
+
   #hover-info {
     display: flex;
     justify-content: center;
@@ -93,6 +101,12 @@
       const menCustomData = menTimes.map((time, index) => [menWinners[index], menPhotos[index]]);
       const womenCustomData = womenTimes.map((time, index) => [womenWinners[index], womenPhotos[index]]);
 
+      const minTime = Math.min(...menTimes, ...womenTimes.filter(time => time !== null));
+      const maxTime = Math.max(...menTimes, ...womenTimes.filter(time => time !== null));
+
+      const minWomenTime = Math.min(...womenTimes.filter(time => time !== null));
+      const minMenTime = Math.min(...menTimes);
+
       const MenTextPosition = [
         "top", "bottom", "top", "bottom", "top", "top", "bottom", "top", "bottom", "top",
         "bottom", "top", "top", "top", "top", "bottom", "top", "bottom", "top", "bottom",
@@ -105,7 +119,58 @@
         "bottom", "top", "top", "bottom", "top", "top", "bottom", "top", "bottom", "top",
       ];
 
-      const womenMarkerAndTextColor = data.map(entry => entry.Year === 2000 ? '#555' : '9f7f34');
+      const womenMarkerAndTextColor = data.map(entry => {
+        const isRecord = entry.Women !== "-" && entry.Women === minWomenTime;
+        return isRecord ? '#DAA520' : '9f7f34';
+      });
+
+      const womenMarkerSymbols = data.map(entry => {
+        const isRecord = entry.Women !== "-" && entry.Women === minWomenTime;
+        return isRecord ? 'star' : 'circle';
+      });
+
+      const womenMarkerSizes = data.map(entry => {
+        const isRecord = entry.Women !== "-" && entry.Women === minWomenTime;
+        return isRecord ? 14 : 11;
+      });
+
+      const womenMarkerBorderWidths = data.map(entry => {
+        const isRecord = entry.Women !== "-" && entry.Women === minWomenTime;
+        return isRecord ? 1 : 0;
+      });
+
+      const menMarkerAndTextColor = data.map(entry => {
+        const isRecord = entry.Men !== "-" && entry.Men === minMenTime;
+        return isRecord ? '#DAA520' : '#1f77b4';
+      });
+
+      const menMarkerSymbols = data.map(entry => {
+        const isRecord = entry.Men !== "-" && entry.Men === minMenTime;
+        return isRecord ? 'star' : 'circle';
+      });
+
+      const menMarkerSizes = data.map(entry => {
+        const isRecord = entry.Men !== "-" && entry.Men === minMenTime;
+        return isRecord ? 14 : 12;
+      });
+
+      const menMarkerBorderWidths = data.map(entry => {
+        const isRecord = entry.Men !== "-" && entry.Men === minMenTime;
+        return isRecord ? 1 : 0;
+      });
+
+      const extraMessageInfo = (year, time) => {
+        const isRecord = time === minWomenTime || time === minMenTime;
+        const descalification = year == 2000 && time == 10.75;
+        
+        if (isRecord) {
+          return { message: '(Actual Récord Mundial)', color: '#A67C00' };
+        } else if (descalification) {
+          return { message: '(Descalificada por Dopaje)', color: 'red' };
+        }
+        return { message: '', color: '#000' };
+      }
+      
       var traceMen = {
         x: years,
         y: menTimes,
@@ -120,7 +185,16 @@
           color: '#1f77b4',
           width: 5
         },
-        marker: { size: 11 },
+        marker: {
+          color: menMarkerAndTextColor,
+          size: menMarkerSizes,
+          symbol: menMarkerSymbols,
+          opacity: 1,
+          line: {
+            color: '#000',
+            width: menMarkerBorderWidths
+          }
+        },
         customdata: menCustomData,
         hoverinfo: "text"
         
@@ -142,8 +216,14 @@
           width: 5
         },
         marker: {
-          size: 11,
+          size: womenMarkerSizes,
           color: womenMarkerAndTextColor,
+          symbol: womenMarkerSymbols,
+          opacity: 1,
+          line: {
+            color: '#000',
+            width: womenMarkerBorderWidths
+          }
         },
         customdata: womenCustomData,
         hoverinfo: "text"
@@ -250,32 +330,19 @@
             font: {
               family: 'Arial',
               size: 20,
-              color: '#9f7f34',
-            }
-          },
-          {
-            xref: 'paper',
-            x: 0.765,
-            y: 10.58,
-            xanchor: 'center',
-            yanchor: 'middle',
-            arrowhead: 2,
-            arrowsize: 0.9,
-            arrowcolor: '#555',
-            ax: 10,
-            ay: 30,
-            text: 'Descalificada por dopaje',
-            showarrow: true,
-            font: {
-              family: 'Arial',
-              size: 16,
-              color: '#555'
+              color: '#9f7f34'
             }
           }
         ]
       };
 
       const myPlot = document.getElementById('myDiv');
+      const runningSound = document.getElementById('running-sound');
+
+      function setPlaybackRate(time) {
+        const speed = ((maxTime - time) / (maxTime - minTime)) * 0.7 + 0.8;
+        runningSound.playbackRate = speed;
+      }
 
       Plotly.newPlot(myPlot, [traceMen, traceWomen], layout);
 
@@ -285,8 +352,7 @@
         const winner = data.points[0].customdata[0];
         const photo = `./public/${data.points[0].customdata[1]}`;
         const time = data.points[0].y;
-        
-        console.log(winner, year, time, photo);
+        const messageInfo = extraMessageInfo(year, time);
 
         document.getElementById('hover-info').style.opacity = 1;
         document.getElementById('winner-name').innerText = winner;
@@ -294,10 +360,17 @@
         document.getElementById('time').innerText = time;
         document.getElementById('img').src = photo;
         document.getElementById('img').alt = winner;
+        document.getElementById('message-info').innerText = messageInfo.message;
+        document.getElementById('message-info').style.color = messageInfo.color;
+
+        setPlaybackRate(time);
+        runningSound.currentTime = 0;
+        runningSound.play();
       });
 
       myPlot.on('plotly_unhover', function(data){
         document.getElementById('hover-info').style.opacity = 0;
+        runningSound.pause();
       });
 
     })
