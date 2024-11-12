@@ -6,7 +6,8 @@
     "men_winner": "Tom Burke",
     "women_winner": "-",
     "men_photo": "Tom_Burke.gif",
-    "women_photo": "-"
+    "women_photo": "-",
+    "City": "Athens"
   },
   {
     "Year": 1900,
@@ -15,7 +16,8 @@
     "men_winner": "Frank Jarvis",
     "women_winner": "-",
     "men_photo": "Frank_Jarvis.jpg",
-    "women_photo": "-"
+    "women_photo": "-",
+    "City": "Paris"
   },
   {
     "Year": 1904,
@@ -24,7 +26,8 @@
     "men_winner": "Archie Hahn",
     "women_winner": "-",
     "men_photo": "Archie_Hahn.jpg",
-    "women_photo": "-"
+    "women_photo": "-",
+    "City": "St. Louis"
   },
   {
     "Year": 1908,
@@ -33,7 +36,8 @@
     "men_winner": "Reggie Walker",
     "women_winner": "-",
     "men_photo": "Reggie_Walker.jpg",
-    "women_photo": "-"
+    "women_photo": "-",
+    "City": "London"
   },
   {
     "Year": 1912,
@@ -42,7 +46,8 @@
     "men_winner": "Ralph Craig",
     "women_winner": "-",
     "men_photo": "Ralph_Craig.jpg",
-    "women_photo": "-"
+    "women_photo": "-",
+    "City": "Stockholm"
   },
   {
     "Year": 1920,
@@ -51,7 +56,8 @@
     "men_winner": "Charles Paddock",
     "women_winner": "-",
     "men_photo": "Charles_Paddock.jpg",
-    "women_photo": "-"
+    "women_photo": "-",
+    "City": "Antwerp"
   },
   {
     "Year": 1924,
@@ -60,7 +66,8 @@
     "men_winner": "Harold Abrahams",
     "women_winner": "-",
     "men_photo": "Harold_Abrahams.jpg",
-    "women_photo": "-"
+    "women_photo": "-",
+    "City": "Paris"
   },
   {
     "Year": 1928,
@@ -69,7 +76,8 @@
     "men_winner": "Percy Williams",
     "women_winner": "Betty Robinson",
     "men_photo": "Percy_Williams.jpg",
-    "women_photo": "Betty_Robinson.jpg"
+    "women_photo": "Betty_Robinson.jpg",
+    "City": "Amsterdam"
   },
   {
     "Year": 1932,
@@ -78,7 +86,8 @@
     "men_winner": "Eddie Tolan",
     "women_winner": "Stanisława Walasiewicz",
     "men_photo": "Eddie_Tolan.jpg",
-    "women_photo": "Stanislawa_Walasiewicz.jpg"
+    "women_photo": "Stanislawa_Walasiewicz.jpg",
+    "City": "Los Angeles"
   },
   {
     "Year": 1936,
@@ -87,7 +96,8 @@
     "men_winner": "Jesse Owens",
     "women_winner": "Helen Stephens",
     "men_photo": "Jesse_Owens.jpg",
-    "women_photo": "Helen_Stephens.jpg"
+    "women_photo": "Helen_Stephens.jpg",
+    "City": "Berlin"
   },
   {
     "Year": 1948,
@@ -96,7 +106,8 @@
     "men_winner": "Harrison Dillard",
     "women_winner": "Fanny Blankers-Koen",
     "men_photo": "Harrison_Dillard.jpg",
-    "women_photo": "Fanny_Blankers-Koen.jpg"
+    "women_photo": "Fanny_Blankers-Koen.jpg",
+    "City": "London"
   },
   {
     "Year": 1952,
@@ -105,7 +116,8 @@
     "men_winner": "Lindy Remigino",
     "women_winner": "Marjorie Jackson",
     "men_photo": "Lindy_Remigino.jpeg",
-    "women_photo": "Marjorie_Jackson.jpg"
+    "women_photo": "Marjorie_Jackson.jpg",
+    "City": "Helsinki"
   },
   {
     "Year": 1956,
@@ -114,7 +126,8 @@
     "men_winner": "Bobby Joe Morrow",
     "women_winner": "Betty Cuthbert",
     "men_photo": "Bobby_Joe_Morrow.jpeg",
-    "women_photo": "Betty_Cuthbert.jpg"
+    "women_photo": "Betty_Cuthbert.jpg",
+    "City": "Melbourne"
   },
   {
     "Year": 1960,
@@ -123,7 +136,8 @@
     "men_winner": "Armin Hary",
     "women_winner": "Wilma Rudolph",
     "men_photo": "Armin_Hary.jpg",
-    "women_photo": "Wilma_Rudolph.jpg"
+    "women_photo": "Wilma_Rudolph.jpg",
+    "City": "Rome"
   },
   {
     "Year": 1964,
@@ -132,7 +146,8 @@
     "men_winner": "Bob Hayes",
     "women_winner": "Wyomia Tyus",
     "men_photo": "Bob_Hayes.jpg",
-    "women_photo": "Wyomia_Tyus.jpg"
+    "women_photo": "Wyomia_Tyus.jpg",
+    "City": "Tokyo"
   },
   {
     "Year": 1968,
@@ -141,7 +156,8 @@
     "men_winner": "Jim Hines",
     "women_winner": "Wyomia Tyus",
     "men_photo": "Jim_Hines.jpg",
-    "women_photo": "Wyomia_Tyus.jpg"
+    "women_photo": "Wyomia_Tyus.jpg",
+    "City": "Mexico City"
   },
   {
     "Year": 1972,
@@ -150,7 +166,8 @@
     "men_winner": "Valeri Borzov",
     "women_winner": "Renate Stecher",
     "men_photo": "Valeriy_Borzov.jpg",
-    "women_photo": "Renate_Stecher.jpg"
+    "women_photo": "Renate_Stecher.jpg",
+    "City": "Munich"
   },
   {
     "Year": 1976,
@@ -159,7 +176,8 @@
     "men_winner": "Hasely Crawford",
     "women_winner": "Annegret Richter",
     "men_photo": "Hasely_Crawford.jpg",
-    "women_photo": "Annegret_Richter.jpg"
+    "women_photo": "Annegret_Richter.jpg",
+    "City": "Montreal"
   },
   {
     "Year": 1980,
@@ -168,7 +186,8 @@
     "men_winner": "Allan Wells",
     "women_winner": "Lyudmila Kondratyeva",
     "men_photo": "Alan_Wells.jpg",
-    "women_photo": "Lyudmilla_Kondratyeva.jpg"
+    "women_photo": "Lyudmilla_Kondratyeva.jpg",
+    "City": "Moscow"
   },
   {
     "Year": 1984,
@@ -177,7 +196,8 @@
     "men_winner": "Carl Lewis",
     "women_winner": "Evelyn Ashford",
     "men_photo": "Carl_Lewis.jpg",
-    "women_photo": "Evelyn_Ashford.jpg"
+    "women_photo": "Evelyn_Ashford.jpg",
+    "City": "Los Angeles"
   },
   {
     "Year": 1988,
@@ -186,7 +206,8 @@
     "men_winner": "Carl Lewis",
     "women_winner": "Florence Griffith-Joyner",
     "men_photo": "Carl_Lewis.jpg",
-    "women_photo": "Florence_Griffith-Joyner.jpg"
+    "women_photo": "Florence_Griffith-Joyner.jpg",
+    "City": "Seoul"
   },
   {
     "Year": 1992,
@@ -195,7 +216,8 @@
     "men_winner": "Linford Christie",
     "women_winner": "Gail Devers",
     "men_photo": "Linford_Christie.jpg",
-    "women_photo": "Gail_Devers.jpg"
+    "women_photo": "Gail_Devers.jpg",
+    "City": "Barcelona"
   },
   {
     "Year": 1996,
@@ -204,7 +226,8 @@
     "men_winner": "Donovan Bailey",
     "women_winner": "Gail Devers",
     "men_photo": "Donovan_Bailey.jpeg",
-    "women_photo": "Gail_Devers.jpg"
+    "women_photo": "Gail_Devers.jpg",
+    "City": "Atlanta"
   },
   {
     "Year": 2000,
@@ -213,7 +236,8 @@
     "men_winner": "Maurice Greene",
     "women_winner": "Marion Jones",
     "men_photo": "Maurice_Greene.jpg",
-    "women_photo": "Marion_Jones.jpg"
+    "women_photo": "Marion_Jones.jpg",
+    "City": "Sydney"
   },
   {
     "Year": 2004,
@@ -222,7 +246,8 @@
     "men_winner": "Justin Gatlin",
     "women_winner": "Yulia Nesterenko",
     "men_photo": "Justin_Gatlin.jpg",
-    "women_photo": "Yulia_Nesterenko.jpg"
+    "women_photo": "Yulia_Nesterenko.jpg",
+    "City": "Athens"
   },
   {
     "Year": 2008,
@@ -231,7 +256,8 @@
     "men_winner": "Usain Bolt",
     "women_winner": "Shelly-Ann Fraser-Pryce",
     "men_photo": "Usain_Bolt.webp",
-    "women_photo": "Shelly-Ann_Fraser-Pryce.jpg"
+    "women_photo": "Shelly-Ann_Fraser-Pryce.jpg",
+    "City": "Beijing"
   },
   {
     "Year": 2012,
@@ -240,7 +266,8 @@
     "men_winner": "Usain Bolt",
     "women_winner": "Shelly-Ann Fraser-Pryce",
     "men_photo": "Usain_Bolt.webp",
-    "women_photo": "Shelly-Ann_Fraser-Pryce.jpg"
+    "women_photo": "Shelly-Ann_Fraser-Pryce.jpg",
+    "City": "London"
   },
   {
     "Year": 2016,
@@ -249,7 +276,8 @@
     "men_winner": "Usain Bolt",
     "women_winner": "Elaine Thompson-Herah",
     "men_photo": "Usain_Bolt.webp",
-    "women_photo": "Elaine_Thompson.jpg"
+    "women_photo": "Elaine_Thompson.jpg",
+    "City": "Rio"
   },
   {
     "Year": 2020,
@@ -258,7 +286,8 @@
     "men_winner": "Lamont Marcell Jacobs",
     "women_winner": "Elaine Thompson-Herah",
     "men_photo": "Lamont_Marcell_Jacobs.jpeg",
-    "women_photo": "Elaine_Thompson.jpg"
+    "women_photo": "Elaine_Thompson.jpg",
+    "City": "Tokyo"
   },
   {
     "Year": 2024,
@@ -267,6 +296,7 @@
     "men_winner": "Noah Lyles",
     "women_winner": "Julien Alfred",
     "men_photo": "Noah_Lyles.webp",
-    "women_photo": "Julien_Alfred.jpg"
+    "women_photo": "Julien_Alfred.jpg",
+    "City": "Paris"
   }
 ]

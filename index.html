@@ -92,14 +92,15 @@
     .then(data => {
 
       const years = data.map(entry => entry.Year);
+      const city = data.map(entry => entry.City);
       const menTimes = data.map(entry => entry.Men);
       const womenTimes = data.map(entry => entry.Women === "-" ? null : entry.Women);
       const menWinners = data.map(entry => entry.men_winner);  
       const womenWinners = data.map(entry => entry.women_winner);
       const menPhotos = data.map(entry => entry.men_photo);
       const womenPhotos = data.map(entry => entry.women_photo);
-      const menCustomData = menTimes.map((time, index) => [menWinners[index], menPhotos[index]]);
-      const womenCustomData = womenTimes.map((time, index) => [womenWinners[index], womenPhotos[index]]);
+      const menCustomData = menTimes.map((time, index) => [menWinners[index], menPhotos[index], city[index]]);
+      const womenCustomData = womenTimes.map((time, index) => [womenWinners[index], womenPhotos[index], city[index]]);
 
       const minTime = Math.min(...menTimes, ...womenTimes.filter(time => time !== null));
       const maxTime = Math.max(...menTimes, ...womenTimes.filter(time => time !== null));
@@ -121,22 +122,26 @@
 
       const womenMarkerAndTextColor = data.map(entry => {
         const isRecord = entry.Women !== "-" && entry.Women === minWomenTime;
-        return isRecord ? '#DAA520' : '9f7f34';
+        const descalification = entry.Year === 2000 && entry.Women === 10.75;
+        return descalification ? 'gray' : (isRecord ? '#DAA520' : '9f7f34');
       });
 
       const womenMarkerSymbols = data.map(entry => {
         const isRecord = entry.Women !== "-" && entry.Women === minWomenTime;
-        return isRecord ? 'star' : 'circle';
+        const descalification = entry.Year === 2000 && entry.Women === 10.75;
+        return descalification ? 'x' : (isRecord ? 'star' : 'circle');
       });
 
       const womenMarkerSizes = data.map(entry => {
         const isRecord = entry.Women !== "-" && entry.Women === minWomenTime;
-        return isRecord ? 14 : 11;
+        const descalification = entry.Year === 2000 && entry.Women === 10.75;
+        return descalification ? 13 : (isRecord ? 14 : 11);
       });
 
       const womenMarkerBorderWidths = data.map(entry => {
         const isRecord = entry.Women !== "-" && entry.Women === minWomenTime;
-        return isRecord ? 1 : 0;
+        const descalification = entry.Year === 2000 && entry.Women === 10.75;
+        return descalification ? 1 : (isRecord ? 1 : 0);
       });
 
       const menMarkerAndTextColor = data.map(entry => {
@@ -340,7 +345,7 @@
       const runningSound = document.getElementById('running-sound');
 
       function setPlaybackRate(time) {
-        const speed = ((maxTime - time) / (maxTime - minTime)) * 0.7 + 0.8;
+        const speed = ((maxTime - time) / (maxTime - minTime)) * 0.8 + 0.8;
         runningSound.playbackRate = speed;
       }
 
@@ -348,15 +353,17 @@
 
       myPlot.on('plotly_hover', function(data){
         const year = data.points[0].x;
+        const city = data.points[0].customdata[2];
         console.log(data.points[0]);
         const winner = data.points[0].customdata[0];
         const photo = `./public/${data.points[0].customdata[1]}`;
         const time = data.points[0].y;
         const messageInfo = extraMessageInfo(year, time);
+        console.log(data)
 
         document.getElementById('hover-info').style.opacity = 1;
         document.getElementById('winner-name').innerText = winner;
-        document.getElementById('year').innerText = year;
+        document.getElementById('year').innerText = `${city}, ${year}`;
         document.getElementById('time').innerText = time;
         document.getElementById('img').src = photo;
         document.getElementById('img').alt = winner;
