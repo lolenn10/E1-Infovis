@@ -1,0 +1,7 @@
+Carol identifico:
+1. El grafico muestra la disminucion de los tiempos en 100m plano en las olimpiadas
+2. hombres mejor desempeño que mujeres.
+3. Obtiene rapidamente el record
+4. En ningun momento se dio cuenta que habia una mujer descalificada
+
+Conclusión: lograr que se detecte que hubo un tiempo descalificado
