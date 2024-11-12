@@ -1,0 +1,9 @@
+Francisco identifico:
+1. Eeconocio que mientras mas bajo es el grafico menor es el tiempo.
+2. A su vez vio como los sonidos aumentaban segun la disminucion de tiempo, pero no le quedo muy claro los sonidos. 
+3. Tambien pudo identificar el peak entre hombres y mujeres mediante la estrella.
+4. La sugerencia es bajar un poco en el eje x la palabra años.
+
+Conclusion:
+
+Mejorar los sonidos
